@@ -45,6 +45,11 @@ h2 {
 	font-size: 1.8rem;
 }
 
+#moves span {
+	width: 100px;
+	height: 100px;
+}
+
 #buttons button{
 	width: 100px;
 	height: 100px;

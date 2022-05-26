@@ -6,10 +6,15 @@ const points = document.querySelector('#points');
 const finalOutcome = document.querySelector('#final-outcome');
 const playAgainBtn = document.querySelector('#play-again');
 const gameButtons = document.querySelectorAll('.game-button');
+const movesImg = document.querySelector('#moves');
+const playerMove = document.querySelector('#player-move');
+const computerMove = document.querySelector('#computer-move');
 
 let userInput;
 let rndm;
 let botMove;
+let move;
+let move2;
 let userWin = 0;
 let botWin = 0;
 let winner = '';
@@ -34,10 +39,90 @@ playAgainBtn.addEventListener('click', playAgain);
 const game = () => {
 	getRandomNumber();
 	compareMoves(userInput);
+	showMove();
 };
 
 const showPoint = () => points.textContent = `Human: ${userWin} | Computer: ${botWin}`;
 showPoint();
+
+{/* <span class="iconify" data-icon="la:hand-rock" data-rotate="90deg"></span>
+<span class="iconify" data-icon="fa:hand-paper-o" data-rotate="90deg"></span>
+<span class="iconify" data-icon="fa6-regular:hand-scissors" data-rotate="180deg" data-flip="vertical"></span>
+<span class="iconify" data-icon="la:hand-rock" data-rotate="90deg" data-flip="vertical"></span>
+<span class="iconify" data-icon="fa:hand-paper-o" data-rotate="90deg" data-flip="vertical"></span>
+<span class="iconify" data-icon="fa6-regular:hand-scissors" data-rotate="180deg" data-flip="horizontal,vertical"></span> */}
+
+function setMultipleAttributesUser(move) {
+	const playerMoves = {'userRock': {'class': 'iconify'
+												, 'data-icon': "la:hand-rock"
+												, 'data-rotate': "90deg"}
+											, 'userPaper': {'class': 'iconify'
+												, 'data-icon': 'fa:hand-paper-o'
+												, 'data-rotate': '90deg'}
+											,	'userScissors': {'class': 'iconify'
+												, 'data-icon': 'fa6-regular:hand-scissors'
+												, 'data-rotate': '180deg'
+												, 'data-flip': 'vertical'}
+	};
+
+	for (let key in playerMoves) {
+		if (move == key) {
+			let objs = Object.entries(playerMoves[key]);
+			for (array of objs) {
+				playerMove.setAttribute(array[0], array[1]);
+			}
+		}
+	}
+}
+
+function setMultipleAttributesBot(move2) {
+	const computerMoves = {'computerRock': {'class': 'iconify'
+													, 'data-icon': 'la:hand-rock'
+													, 'data-rotate': '90deg'
+													, 'data-flip': 'vertical'}
+												, 'computerPaper': {'class': 'iconify'
+													, 'data-icon': "fa:hand-paper-o"
+													, 'data-rotate': '90deg'
+													, 'data-flip': 'vertical'}
+												, 'computerScissors': {'class': 'iconify'
+													, 'data-icon': 'fa6-regular:hand-scissors'
+													, 'data-rotate': '180deg'
+													, 'data-flip': 'horizontal,vertical'}
+	};
+
+	for (let key in computerMoves) {
+		if (move == key) {
+			let objs = Object.entries(computerMoves[key]);
+			for (array of objs) {
+				computerMove.setAttribute(array[0], array[1]);
+			}
+		}
+	}
+}
+
+function showMove () {
+	if (userInput == 'rock') {
+		move = 'userRock';
+		setMultipleAttributesUser(move);
+	} else if (userInput == 'paper') {
+		move = 'userPaper';
+		setMultipleAttributesUser(move);
+	} else if (userInput == 'scissors') {
+		move = 'userScissors';
+		setMultipleAttributesUser(move);
+	}
+
+	if (botMove == 'rock') {
+		move2 = 'computerRock';
+		setMultipleAttributesBot(move2);
+	} else if (botMove == 'paper') {
+		move2 = 'computerPaper';
+		setMultipleAttributesBot(move2);
+	} else if (botMove == 'scissors') {
+		move2 = 'computerScissors';
+		setMultipleAttributesBot(move2);
+	}
+}
 
 function getRandomNumber() {
 	rndm = Math.floor(Math.random() * 3) + 1; // gets a random number from 1 to 3
@@ -54,12 +139,12 @@ function showMessage() {
 	if (userWin == 5) {
 		finalOutcome.textContent = 'You won against the computer! Well played.';
 		playAgainBtn.removeAttribute('style', 'visibility: hidden;');
-		gameButtons.forEach(btn => btn.setAttribute('disabled', 'disabled'));
+		gameButtons.forEach(btn => btn.setAttribute('disabled', ''));
 		outcome.textContent = '';
 	} else if (botWin == 5) {
 		finalOutcome.textContent = 'You lost to the computer. Better luck next time!';
 		playAgainBtn.removeAttribute('style', 'visibility: hidden;');
-		gameButtons.forEach(btn => btn.setAttribute('disabled', 'disabled'));
+		gameButtons.forEach(btn => btn.setAttribute('disabled', ''));
 		outcome.textContent = '';
 	} 
 	
