@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="John Limos">
+	<title>Rock Paper Scissors!</title>
+	<link rel="stylesheet" href="/style.css">
+	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+	<script src='/script.js' defer></script>
+</head>
+<body>
+	<div id='lining'>
+		<header>
+			<h1 id='title'>Rock, Paper, Scissors</h1>
+			<h2>vs</h2>
+			<h2>THE COMPUTER</h2>
+		</header>
+
+		<div id='outcome-img'>
+			<img src="" alt="" id='player-move'>
+			<img src="" alt="" id='bot-move'>
+		</div>
+
+		<div id='buttons'>
+			<button id='rock-btn' class='game-button'>
+				<span class="iconify" data-icon="openmoji:rock" data-width="60" data-height="60" data-rotate="90deg" data-flip="horizontal,vertical"></span>
+			</button>
+
+			<button id='paper-btn' class='game-button'>
+				<span class="iconify" data-icon="noto-v1:newspaper" data-width="60" data-height="60" data-rotate="180deg" data-flip="horizontal,vertical"></span>
+			</button>
+
+			<button id='scissors-btn' class='game-button'>
+				<span class="iconify" data-icon="noto:scissors" data-width="60" data-height="60" data-flip="horizontal,vertical"></span>
+			</button>
+		</div>
+
+		<div id='text'>
+			<p id='outcome'></p>
+			<p id='points'></p>
+			<p id='final-outcome'></p>
+			<button id='play-again' style='visibility: hidden;'>Play again?</button>
+		</div>
+	</div>
+
+	<span class="iconify" data-icon="la:hand-rock" data-rotate="90deg"></span>
+	<span class="iconify" data-icon="fa:hand-paper-o" data-rotate="90deg"></span>
+	<span class="iconify" data-icon="fa6-regular:hand-scissors" data-rotate="180deg" data-flip="vertical"></span>
+
+
+
+
+	<span class="iconify" data-icon="la:hand-rock" data-rotate="90deg" data-flip="vertical"></span>
+	<span class="iconify" data-icon="fa:hand-paper-o" data-rotate="90deg" data-flip="vertical"></span>
+	<span class="iconify" data-icon="fa6-regular:hand-scissors" data-rotate="180deg" data-flip="horizontal,vertical"></span>
+	
+</body>
+</html>
