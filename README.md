@@ -1,2 +1,1 @@
 # rock-paper-scissors
-test
